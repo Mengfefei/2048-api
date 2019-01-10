@@ -31,14 +31,17 @@ if __name__ == "__main__":
     GAME_SIZE = 4
     SCORE_TO_WIN = 2048
     APP_PORT = 5005
-    APP_HOST = "0.0.0.0"
+    APP_HOST = "localhost"
 
     from game2048.game import Game
     game = Game(size=GAME_SIZE, score_to_win=SCORE_TO_WIN)
 
     try:
         from game2048.agents import ExpectiMaxAgent
-        agent = ExpectiMaxAgent(game=game)
+        #agent = ExpectiMaxAgent(game=game)
+
+        from game2048.agents import MyAgent
+        agent = MyAgent(game=game)
     except:
         from game2048.agents import RandomAgent
         print("WARNING: Please compile the ExpectiMaxAgent first following the README.")
